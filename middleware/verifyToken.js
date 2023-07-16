@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken')
 const { TOKEN_SECRET } = require('../constant')
 module.exports = (request, response, next) =>{
-    const token = request.header('auth_token')
-    // console.log(token);
+    const token = request.header('auth-token')
+    console.log(request.header('auth-token'));
     if(!token) return response.status(401).send('Token required')
 
     try{

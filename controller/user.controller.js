@@ -46,6 +46,6 @@ async function login(req, res) {
     if (!checkPassword) return res.status(422).send('Password not correct')
     user['password'] = null
     const token = jwt.sign({ _id: user._id }, TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
-    return res.status(200).cookie('token', token).json(user)
+    return res.status(200).set('access-Control-Allow-Credentials','true').cookie('token', token).json(user)
 }
 module.exports = { register, login }

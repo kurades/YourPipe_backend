@@ -112,7 +112,6 @@ async function addMusicQueue(userId, videoId) {
 
 async function getMusicQueue(id) {
     const user = await User.findById(id)
-    console.log(user);
     if (user.playlist === [])
         return {
             type: 'error',
